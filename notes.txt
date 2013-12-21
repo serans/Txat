@@ -1,0 +1,20 @@
+BUGS
+  - android can't send utf8
+
+TO-DO
+
+FUTURE
+  - store messages & send them when recconected (at lest last 30min)
+  - check that nicks are unique(?)
+  - emoji
+  - send session key, to identify user even when reconnecting
+     http://stackoverflow.com/questions/4641053/socket-io-and-session
+     http://stackoverflow.com/questions/19082693/how-to-get-session-id-with-socketio
+  - msg date should be sent together with msg
+  - can send images
+  - autoformat links
+  - private messages
+  - rooms
+
+
+

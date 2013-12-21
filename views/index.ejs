@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script language='javascript' type='text/javascript' src='/javascripts/libs/jquery.min.js'></script>
+    <script language='javascript' type='text/javascript' src='/socket.io/libs/socket.io.js'></script>
+    <script language='javascript' type='text/javascript' src='/javascripts/chatClient.js'></script>
+    <script language='javascript' type='text/javascript' src='/javascripts/main.js'></script>
+  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <body>
+    
+    <div id="header">
+      <div class="header-top fullBar">
+        <div class="nav-left">
+          <a href="#" class="">PrivChat</a>
+        </div>
+        
+        <ul class="nav-right">
+          <li>
+            <a href="javascript:void()" >
+              <span id="user-count" class="glyphicon glyphicon-user"></span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void()" class="btn-back">
+              <span class="glyphicon glyphicon-cog"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <main class="container">
+      <div id="setup">
+              
+        <h2>Enter Nickname</h2>
+        <a name="nickname"></a>
+        <div class="row" id="nickname-input-div">
+          <form id="nickname-form">
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="nickname-input" placeholder="enter your nickname here">
+          </div>
+          <div class="col-sm-2">
+            <input class="form-control" type="submit" value="Chat!">
+          </div>
+          </form>
+        </div>
+      </div>
+      
+      <div id="chat">
+      
+        <div id="chat-controls-wrapper">
+          <div id="chat-controls" class="fullBar">
+            <div id="chat-controls-row">
+              <form id="chat-form">
+              
+                <button type="button" class="form-control btn-back">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </button> 
+                
+                <div style="width:100%">
+                  <input class="form-control" type="text" id="chat-input">
+                </div>
+                
+                <button class="form-control" type="submit">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </button>
+            
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div id="chat-users" class="col-sm-4 hidden-xs" class="list-group">
+
+            <div class="panel panel-default" id="chat-users-list">
+              <div class="panel-heading">
+                online users
+              </div>
+            </div>
+            
+            <div class="panel panel-default" id="myself">
+              <a class="list-group-item btn-back" href="#">
+                <span class="glyphicon glyphicon-user"></span> 
+                <span class="name"></span>
+              </a>
+            </div>
+            
+          </div>
+          
+          <div id="chat-container" class="col-sm-8">
+            <div id="chat-wrapper">
+              <div id="chat-main">
+
+              </div>
+            </div><!--chat-wrapper -->
+          </div><!--chat-container-->
+          
+        </div>
+      </div>
+      
+    </main>
+  </body>
+</html>

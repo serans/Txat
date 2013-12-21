@@ -1,0 +1,306 @@
+/*
+ * Tango palette:
+ *  Blues:
+ *    #729fcf;
+ *    #3464a4;
+ *    #204a87;
+ *  Plum:
+ *    #ad7fa8;
+ *    #75507b;
+ *    #5c3566;
+ */
+
+h2 {
+  color: #fff;
+}
+
+html, main, body {
+  height: 100%;
+}
+
+body { 
+  background: #3A4755;
+  padding-top: 45px; 
+}
+
+.form-control {
+  border-radius: 0;
+  border: none;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  background-color: #355077;
+  width: 100%;
+  z-index:2;
+}
+
+#header a {
+  color:#BAC5DD;
+}
+
+.header-top {
+  width: 1140px;
+  margin: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .header-top { width: 940px; }
+}
+
+@media screen and (max-width: 992px) {
+  .header-top { width: 720px; }
+}
+
+@media screen and (max-width: 720px ) {
+  .header-top { 
+    width:100%; 
+    padding: 0 15px;
+  }
+}
+
+
+.nav-left {
+  float: left !important;
+  padding: 5px 0;
+}
+
+.nav-right {
+  float:right !important;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-right li {
+  display: inline-block !important;
+  padding: 5px 15px 5px 15px;
+  border-left: 1px solid #576481;
+}
+
+.nav-right li:last-child {
+  border-right: 1px solid #576481;
+}
+
+#chat, #chat .row, #chat-container {
+  height: 100%;
+}
+
+#chat-wrapper, #chat-main {
+  width: 100%;
+}
+
+#chat-controls-wrapper {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  z-index:5;
+  background: #355077;
+  border: 3px solid #355077;
+}
+
+#chat-controls-row {
+  width: 66.666666666%;
+  margin-left: 33.33333333%;
+  border: 3px solid #7F90AD;
+  margin-top: -3px;
+}
+
+#chat-users {
+  padding-left: 0;
+}
+
+#myself {
+  font-size:120%;
+}
+
+#myself .name {
+  padding-left: 15px;
+}
+
+.fullBar {
+  width: 1170px;
+  margin:auto;
+}
+
+@media screen and (max-width: 1199px) {
+  .fullBar {
+    width: 970px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .fullBar {
+    width: 750px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .fullBar {
+    width: 100%;
+    padding:0;
+  }
+  
+  #chat-controls-row {
+    width:100%;
+    margin:0;
+  }
+
+  #chat-controls-wrapper {
+    border: 0px;
+  }
+  
+  
+}
+
+#chat-form div {
+  display: table-cell;
+  vertical-align:top;
+}
+
+
+#chat-container {
+  background: #eee;
+  padding:0;
+}
+
+#chat-wrapper {
+  max-height: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+#chat-main {
+  background: #eee;
+  overflow: auto;
+  padding: 10px;
+  padding-bottom: 3em; /*using #chat-wrapper -> bottom:3em doesn't work when scroll shows up */
+}
+
+@media screen and (min-width: 600px) {
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-right {
+    padding-right: 20px;
+  }
+  
+  .container {
+    padding:0;
+  }
+}
+
+
+#chat-form {
+  display: table-row;
+}
+
+
+.btn, .btn-default {
+  background: #ad7fa8;
+  color: #fff;
+  border-radius:0;
+  border: none;
+}
+
+input[type="submit"] {
+  background: #ad7fa8;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Bubbles */
+
+.bubble{
+    background-color: #fefefe;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    vertical-align: top;
+    clear:both;
+}
+
+.bubble::before {
+    background-color: #fefefe;
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    position: absolute;
+    top: 11px;
+    transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  20px;
+}
+
+.others {
+    float: left;   
+    margin: 5px 45px 5px 20px; 
+    padding-left:22px;   
+}
+
+.others::before {
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    left: -9px;           
+}
+
+.me {
+    float: right;    
+    margin: 5px 20px 5px 45px;         
+    background-color: #aea;
+}
+
+.me::before {
+    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+    right: -9px;   
+    background-color: #aea; 
+}
+
+.msg p {
+    margin: 0 0 5px;
+}
+
+.me hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #eff;
+  margin: 0.5em;
+}
+
+.bubbleInfo {
+  margin-top: -8px;
+  border-bottom: 1px solid #fff;
+  font-size: 90%;
+  margin-bottom: 5px;
+  min-width: 20em;
+  font-style: italic;  
+  overflow: auto;
+}
+
+.bubbleInfo p {
+  display:inline;
+}
+
+.bubbleInfo .nick {
+  color: #7a7;
+}
+
+.bubbleInfo .date {
+  float: right;
+  color: #aaa;
+}
+
+.system {
+  clear: both;
+  color: #aaa;
+  margin: auto;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 5px;
+}
+
