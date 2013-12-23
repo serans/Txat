@@ -78,8 +78,8 @@ ChatClient.prototype.addUser = function(user) {
       this.onUserUpdated(this.users[user.uid], user);
     }
   } else {
-    this.onNewUser(user);
     this.num_users++;
+    this.onNewUser(user);
   }
   
   this.users[user.uid] = user;

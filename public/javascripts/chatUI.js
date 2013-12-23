@@ -30,6 +30,7 @@ function ChatUI(chat) {
   chat.onNewUser = function(user) { 
     chatUI.addSysMsg(user.nick+' has joined');
     chatUI.updateUser(user);
+    chatUI.checkUserListIsEmpty();
   }
   
   chat.onUserUpdated = function(olduser,newuser) { 
@@ -40,6 +41,7 @@ function ChatUI(chat) {
   chat.onUserDisconnected = function(user) {
     chatUI.addSysMsg(user.nick+' has left');
     chatUI.removeUser(user);
+    chatUI.checkUserListIsEmpty();
   }
 
   chat.onSetUsers = function (users){
@@ -47,35 +49,29 @@ function ChatUI(chat) {
     for(var uid in users) {
       chatUI.updateUser(users[uid]);
     }
+    chatUI.checkUserListIsEmpty();
+  } 
+}
+
+ChatUI.prototype.checkUserListIsEmpty = function() {
+  this.screen.out.users.find('.nousers').remove();
+  if(this.chat.num_users < 2 ) {
+    this.screen.out.users.append('<div class="list-group-item nousers">no online users</div>');
+  }
+}
+
+ChatUI.prototype.removeUser = function (user) {
+
+  var uid_divs = this.screen.out.users.find('.uid');
+
+  for(var i=0; i<uid_divs.length; i++) {
+    var uid = $(uid_divs[i]).text();
+    if(uid == user.uid) {
+      $(uid_divs[i]).parent().remove();
+      return;
+    }
   }
   
-}
-
-ChatUI.prototype.removeUser = function (user) {
-  var uid_divs = this.screen.out.users.find('.uid');
-
-  for(var i=0; i<uid_divs.length; i++) {
-    var uid = $(uid_divs[i]).text();
-    if(uid == user.uid) {
-      $(uid_divs[i]).parent().remove();
-      return;
-    }
-  }
-
-}
-
-
-ChatUI.prototype.removeUser = function (user) {
-  var uid_divs = this.screen.out.users.find('.uid');
-
-  for(var i=0; i<uid_divs.length; i++) {
-    var uid = $(uid_divs[i]).text();
-    if(uid == user.uid) {
-      $(uid_divs[i]).parent().remove();
-      return;
-    }
-  }
-
 }
 
 
@@ -87,6 +83,10 @@ ChatUI.prototype.updateUser = function (user) {
   }
 
   var uid_divs = this.screen.out.users.find('.uid');
+  
+  if(uid_divs.length == 0) {
+    this.screen.out.users.find('list-group-item').remove();
+  }
 
   for(var i=0; i<uid_divs.length; i++) {
     var uid = $(uid_divs[i]).text();
@@ -209,9 +209,11 @@ ChatUI.prototype.addSysMsg = function (text) {
 
 ChatUI.prototype.showTab = function(tab) {
   if(tab == 'setup' ){
+    $('#header').hide();
     this.screen.tab.setup.slideDown();
     this.screen.tab.chat.slideUp();
   } else if(tab == 'chat') {
+    $('#header').show();
     this.screen.tab.setup.slideUp();
     this.screen.tab.chat.slideDown();
     this.screen.form.nick.find('input[name="nickname"]').focus();
@@ -249,5 +251,4 @@ ChatUI.prototype.initialize = function() {
     input.val('').focus();
   });
   
-  this.screen.tab.chat.hide();
 }

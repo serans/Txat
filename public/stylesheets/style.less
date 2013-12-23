@@ -30,6 +30,7 @@ body {
   background-color: @blue-light;
   width: 100%;
   z-index:2;
+  display: none;
 }
 
 #header a {
@@ -81,7 +82,9 @@ body {
   border-right: 1px solid #576481;
 }
 
-
+#chat {
+  display: none;
+}
 
 #chat, #chat .row, #chat-container {
   height: 100%;
@@ -305,3 +308,11 @@ input[type="submit"] {
   margin-bottom: 5px;
 }
 
+.panel-default {
+  border: none;
+}
+
+.panel-default>.panel-heading {
+  background-color: @blue-light;
+  color: #ddd;
+}
