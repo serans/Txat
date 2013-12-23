@@ -1,7 +1,7 @@
 var assert = require("assert")
 var chatUsers = require("../chatUsers.js");
 
-describe('chatUsers', function(){
+describe('ChatUsers', function(){
 
   describe('create users', function(){
     it('should create a new user, with unique uid and non-empty name', function(){

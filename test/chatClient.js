@@ -140,6 +140,7 @@ describe('ChatClient', function(){
       chat.onSetUsers = doneWrap;
       socket.trigger('globalData', globalData());
     });
+    
   });
   
   describe('#socket:on userUpdated', function() {
@@ -215,6 +216,15 @@ describe('ChatClient', function(){
       socket.trigger('userDisconnected', 3 );
     });
     
+    it('should be possible to remove users passing "user" object', function() {
+      reset();
+      socket.trigger('globalData', globalData());
+      
+      assert(typeof chat.users[7] !== 'undefined');
+      chat.removeUser(chat.users[7]);
+      assert(typeof chat.users[7] === 'undefined');
+    });
+    
   });
   
   describe('#socket:on chatMsg', function() {
@@ -257,6 +267,18 @@ describe('ChatClient', function(){
       chat.setNick('pepe');
       assert.equal(socket.history[0].id,'updateOwnInfo');
       assert.deepEqual(socket.history[0].data,chat.myself);
+    });
+    
+    it('should keep uids after changing the nick', function(done) {
+      reset();
+      function init(usr) {
+        chat.setNick('pepe');
+        assert.equal(chat.myself.uid, 3);
+        assert.equal(chat.myself.nick,'pepe');
+        done();
+      }
+      
+      socket.trigger('initialize', {'uid':3, 'nick':'guest0'}, init );
     });
     
     it('should acknowledge the nick has changed', function() {
