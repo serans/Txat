@@ -1,4 +1,5 @@
-== ChanChat ==
+
+== 
 
 Client
   <- onOwnInfoUpdated({uid, nick}) #user data

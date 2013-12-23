@@ -4,15 +4,16 @@
 var http = require('http');
 var express = require('express');
 var iomodule = require('socket.io');
+var less = require('less-middleware');
 var chatUsers = require('./chatUsers');
 
 var app = express();
 
-// all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.set('env','development');
+app.use(less({ src: __dirname + "/public", compress: true }));
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());

@@ -186,12 +186,14 @@ $( function() {
   });
   
   $('#nickname-form').submit( function(event) { 
-    var nick = $('#nickname-input').val()
-    chat.setNick(nick);
     event.preventDefault(); 
-    addSysMsg('you are now known as '+nick);
-    console.log(chat.myself);
-    updateUser(chat.myself);
+    var nick = $('#nickname-input').val();
+
+    if(nick != chat.myself.nick) {
+      addSysMsg('you are now known as '+nick);
+      chat.setNick(nick);
+      updateUser(chat.myself);
+    }
     $('#setup').slideUp();
     $('#chat').slideDown();
     $('#chat-input').focus();
