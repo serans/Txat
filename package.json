@@ -9,6 +9,6 @@
     "express": "3.4.7",
     "ejs": "0.8.5",
     "socket.io": "0.9.16",
-    "less-middleware": "0.1.14",
+    "less-middleware": "0.1.14"
   }
 }

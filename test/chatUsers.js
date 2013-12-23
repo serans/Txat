@@ -21,19 +21,11 @@ describe('chatUsers', function(){
     var user2 = chatUsers.newUser();
     var uid = user2.uid;
 
-    it('should update both nick and aid', function() {
+    it('should update nick', function() {
       
-      chatUsers.updateUser(uid, {'nick':'jon', 'aid':1});
+      chatUsers.updateUser(uid, {'nick':'jon'});
       assert.equal(user2.nick,'jon');
-      assert.equal(user2.aid,1);
       
-      chatUsers.updateUser(uid, {'aid':2});
-      assert.equal(user2.nick,'jon');
-      assert.equal(user2.aid,2);
-      
-      chatUsers.updateUser(uid, {'nick':'John'});
-      assert.equal(user2.nick,'John');
-      assert.equal(user2.aid,2);
     });
     
     it('should not update uid', function () {

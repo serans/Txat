@@ -119,5 +119,6 @@ ChatClient.prototype.sendMsg = function(msgTxt) {
 
 //Export to be used in mocha 
 if (typeof module !== 'undefined' && module.exports != null) {
-    exports.Chat = Chat;
+    exports.ChatClient = ChatClient;
 }
+

@@ -1,5 +1,5 @@
 var assert = require("assert")
-var chatClient = require("../public/javascripts/chat.js");
+var chatClient = require("../public/javascripts/chatClient.js");
 
 /*
  * Sockets do not seem to work when run from mocha,
@@ -28,7 +28,7 @@ function fauxSocket() {
 }
 
 
-describe('Chat', function(){
+describe('ChatClient', function(){
 
   var socket;
   var chat;
@@ -48,10 +48,7 @@ describe('Chat', function(){
 
   describe('#socket:on connect', function(){
     it('should call on Connect', function(done){
-    reset();
-      /*
-      @TO-DO
-      */
+      reset();
       chat.onConnect = done;
       socket.trigger('connect');
     });
