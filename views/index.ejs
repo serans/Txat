@@ -9,6 +9,7 @@
     <script language='javascript' type='text/javascript' src='/javascripts/libs/jquery.min.js'></script>
     <script language='javascript' type='text/javascript' src='/socket.io/libs/socket.io.js'></script>
     <script language='javascript' type='text/javascript' src='/javascripts/chatClient.js'></script>
+    <script language='javascript' type='text/javascript' src='/javascripts/chatUI.js'></script>
     <script language='javascript' type='text/javascript' src='/javascripts/main.js'></script>
   </head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,22 +17,24 @@
     
     <div id="header">
       <div class="header-top fullBar">
-        <div class="nav-left">
-          <a href="#" class="">Txat</a>
-        </div>
-        
-        <ul class="nav-right">
+        <ul class="nav nav-left">
           <li>
-            <a href="javascript:void()" >
-              <span id="user-count" class="glyphicon glyphicon-user"></span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void()" class="btn-back">
+            <a href="javascript:void()" class="btn-setup">
               <span class="glyphicon glyphicon-cog"></span>
             </a>
           </li>
         </ul>
+        
+        
+        <ul class="nav nav-right">
+          <li>
+            <a href="javascript:void()" >
+              <span id="user-count" class="glyphicon glyphicon-user"></span>
+            </a>
+          </li>          
+        </ul>
+        
+         <!-- <a href="#" class="">Txat</a> -->
       </div>
     </div>
     
@@ -43,7 +46,7 @@
         <div class="row" id="nickname-input-div">
           <form id="nickname-form">
           <div class="col-sm-10">
-            <input class="form-control" type="text" id="nickname-input" placeholder="enter your nickname here">
+            <input class="form-control" type="text" name="nickname" placeholder="enter your nickname here">
           </div>
           <div class="col-sm-2">
             <input class="form-control" type="submit" value="Chat!">
@@ -59,12 +62,12 @@
             <div id="chat-controls-row">
               <form id="chat-form">
               
-                <button type="button" class="form-control btn-back">
+                <button type="button" class="form-control btn-setup">
                     <span class="glyphicon glyphicon-cog"></span>
                 </button> 
                 
                 <div style="width:100%">
-                  <input class="form-control" type="text" id="chat-input">
+                  <input class="form-control" type="text" name="chat">
                 </div>
                 
                 <button class="form-control" type="submit">
@@ -87,7 +90,7 @@
             </div>
             
             <div class="panel panel-default" id="myself">
-              <a class="list-group-item btn-back" href="#">
+              <a class="list-group-item btn-setup" href="#">
                 <span class="glyphicon glyphicon-user"></span> 
                 <span class="name"></span>
               </a>

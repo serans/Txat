@@ -39,6 +39,7 @@ body {
 .header-top {
   width: 1140px;
   margin: auto;
+  text-align: center;
 }
 
 @media screen and (max-width: 1200px) {
@@ -57,26 +58,30 @@ body {
 }
 
 
-.nav-left {
-  float: left !important;
-  padding: 5px 0;
-}
-
-.nav-right {
-  float:right !important;
+.nav {
   padding: 0;
   margin: 0;
 }
 
-.nav-right li {
+.nav-left {
+  float: left !important;
+}
+
+.nav-right {
+  float:right !important;
+}
+
+.nav li {
   display: inline-block !important;
-  padding: 5px 15px 5px 15px;
+  padding: 0;
   border-left: 1px solid #576481;
 }
 
-.nav-right li:last-child {
+.nav li:last-child {
   border-right: 1px solid #576481;
 }
+
+
 
 #chat, #chat .row, #chat-container {
   height: 100%;
