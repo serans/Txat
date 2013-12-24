@@ -133,7 +133,7 @@ ChatUI.prototype.addOwnMsg = function(msg) {
 
 ChatUI.prototype.addMsg = function(msg) {
   var date = new Date();
-  var uid = msg.uid;
+  var uid = Number(msg.uid);
   var nick = chat.users[uid].nick;
   var msgTxt = msg.msg;
   var append = {
@@ -144,7 +144,7 @@ ChatUI.prototype.addMsg = function(msg) {
 
   var lastMsg = this.screen.out.chat.find('.msg:last');
   
-  if ( lastMsg.find('.uid').text() == uid ) {
+  if ( Number(lastMsg.find('.uid').text()) === uid ) {
     append.newBubble = false;
     append.nick = false;
     
