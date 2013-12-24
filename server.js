@@ -40,7 +40,7 @@ var io = iomodule.listen(httpserver, {log:true});
 
 var users = Object();
 
-io.set('transports', ['websocket', 'flashsocket', 'htmlfile']);
+//io.set('transports', ['websocket', 'flashsocket', 'htmlfile']);
 
 io.sockets.on('connection', function(socket) {
   
