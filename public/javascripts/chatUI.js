@@ -19,6 +19,8 @@ function ChatUI(chat) {
     }
   }
   
+  this.userColors = {};
+  
   chat.onMsg = function(msg) {
     chatUI.addMsg(msg);
   }
@@ -96,12 +98,14 @@ ChatUI.prototype.updateUser = function (user) {
     }
   }
 
+  chatUI.userColors[user.uid] = getRandomColor();
+
   var html = '';
   html += "<div class='list-group-item'>";
   html += "<div class='uid hidden' >";
   html += user.uid;
   html += "</div>";
-  html += "<p>"+user.nick+"</p>";
+  html += "<p style='color:"+this.userColors[user.uid]+"'>"+user.nick+"</p>";
   html += "</div>";
   
   this.screen.out.users.append(html);
@@ -178,7 +182,7 @@ ChatUI.prototype.addMsg = function(msg) {
   }
   
   if(append.nick) {
-    html += '<div class="nick">';
+    html += '<div class="nick" style="color:'+this.userColors[uid]+'">';
     html += nick;
     html += '</div>';
   }
@@ -251,4 +255,15 @@ ChatUI.prototype.initialize = function() {
     input.val('').focus();
   });
   
+};
+
+function getRandomColor() {
+    function rand(min, max) {
+        return parseInt(Math.random() * (max-min+1), 10) + min;
+    }
+
+    var h = rand(1, 360);
+    var s = rand(20, 100);
+    var l = rand(30, 60);
+    return 'hsl(' + h + ',' + s + '%,' + l + '%)';
 }

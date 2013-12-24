@@ -36,11 +36,9 @@ httpserver.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var io = iomodule.listen(httpserver, {log:true});
+var io = iomodule.listen(httpserver, {log:false});
 
 var users = Object();
-
-//io.set('transports', ['websocket', 'flashsocket', 'htmlfile']);
 
 io.sockets.on('connection', function(socket) {
   
@@ -86,7 +84,7 @@ io.sockets.on('connection', function(socket) {
   socket.on('sendMsg', function(msg) {
     socket.get('uid', function(error, uid) {
       console.log('sendMsg');
-      if(uid!=null)
+      if(uid !== null)
         socket.broadcast.emit('chatMsg',{'uid':uid,'msg':msg});
     });
   });
