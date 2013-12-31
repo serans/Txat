@@ -124,7 +124,7 @@ ChatUI.prototype.addOwnMsg = function(msg) {
   var lastMsg = this.screen.out.chat.find('.msg:last');
   
   if(lastMsg.hasClass('me')) {
-    lastMsg.append('<hr/>'+this.htmlEncode(msg))
+    lastMsg.append('<hr/>'+this.htmlEncode(msg));
   } else {
     this.screen.out.chat.append(
       '<div class="msg bubble me">'+
