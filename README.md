@@ -18,3 +18,10 @@ Screenshots
 **Desktop**
 
 ![Desktop](http://i.imgur.com/MUsCniIh.png "Desktop")
+
+
+Licence
+========
+All source code in this project is
+  * (c) MH Serans, unless stated otherwise
+  * Available under the GPL v3 licence, unless stated otherwise
